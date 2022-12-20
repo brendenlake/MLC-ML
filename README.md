@@ -2,10 +2,14 @@
 
 BIML is a meta-learning approach for guiding neural networks to human-like systematic generalization and inductive biases. This code shows how to train and evaluate a modified sequence-to-sequence (seq2seq) transformer for memory-based meta-learning. This repository shows how to apply BIML-Scale to the [SCAN](https://github.com/brendenlake/SCAN) and [COGS](https://github.com/najoungkim/COGS) machine learning benchmarks. The more basic architecture applied to modeling human behavior is available [here](https://github.com/brendenlake/BIML-sysgen).
 
+We strongly recommend you run the training and evaluations using a GPU (one Titan RTX used in paper).
+
 This code accompanies the following submitted paper.
 - Lake, B. M. and Baroni, M. (submitted). Human-like systematic generalization through a meta-learning neural network.   
 
 You can email brenden AT nyu.edu if you would like a copy.
+
+<img src="imgs/model.png" alt="BIML-scale architecture" width="450"/>
 
 ## Credits
 This repo borrows from the excellent [PyTorch seq2seq tutorial](https://pytorch.org/tutorials/beginner/translation_transformer.html).
@@ -15,13 +19,21 @@ Python 3 with the following packages:
 torch (PyTorch), sklearn (scikit-learn), numpy, matplotlib
 
 ## Downloading pre-trained models
-To get pre-trained models, you should download the following [zip file](https://cims.nyu.edu/~brenden/supplemental/BIML-large-files/BIML_ml_models.zip). Please extract `BIML_ml_models.zip` such that `out_models_scan` and `out_models_cogs` are sub-directories of the main repo and contain the model files `net_*.pt.`
+To get pre-trained models, you should download the following [zip file](https://cims.nyu.edu/~brenden/supplemental/BIML-large-files/BIML_ml_models.zip). Please extract `BIML_ml_models.zip` such that `out_models_scan` and `out_models_cogs` are sub-directories of the main repo and contain the model files `net_*.pt`. Records of the model output and performance numbers for the runs used in the paper are also available in this folder, as e.g., `net_*_eval_gen_lex.txt`.
 
 ## Evaluating models
-Models are evaluated via their best responses to the test commands. Here we find the best response from the pre-trained BIML model using greedy decoding:
+Models are evaluated via their best responses to the test commands. We find the best response from the pre-trained BIML model using greedy decoding.
+
+To evaluate a pre-trained model on the SCAN Add jump split,
 ```python
-python eval.py  --max --episode_type X --fn_out_model X.pt --verbose
+python eval.py  --max --episode_type addprim_jump_actions --dir_model out_models_scan --fn_out_model net_addprim_jump_actions_rep1.pt --verbose
 ```
+
+To evaluate a pre-trained model on the COGS lexical generalization split,
+```python
+python eval.py  --max --episode_type cogs_gen_lex --dir_model out_models_cogs --fn_out_model net_cogs_trained_targeted_rep1.pt --verbose
+```
+
 
 The full set of evaluation arguments can be viewed with when typing `python eval.py -h`:
 ```
@@ -115,4 +127,4 @@ optional arguments:
                         fraction of early training
   --resume              Resume training from a previous checkpoint
 ```
-Note that the `save_best` options were not used in any benchmark experiment and should not be used in these use cases. SCAN does not have a validation set, and early stopping on the COGS validation set leads to worse performance                       
+Note that the `save_best` options were not used in any benchmark experiment and should not be used in these use cases. SCAN does not have a validation set, and early stopping on the COGS validation set leads to poor performance.                       
