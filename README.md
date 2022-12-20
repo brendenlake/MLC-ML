@@ -1,15 +1,17 @@
 # Applying Behaviorally-Informed Meta-Learning (BIML) to machine learning benchmarks
 
-BIML is a meta-learning approach for guiding neural networks to human-like systematic generalization and inductive biases. This code shows how to train and evaluate a modified sequence-to-sequence (seq2seq) transformer for memory-based meta-learning. This repository shows how to apply BIML-Scale to the [SCAN](https://github.com/brendenlake/SCAN) and [COGS](https://github.com/najoungkim/COGS) machine learning benchmarks. The more basic architecture applied to modeling human behavior is available [here](https://github.com/brendenlake/BIML-sysgen).
+BIML is a meta-learning approach for guiding neural networks to human-like systematic generalization and inductive biases. This code shows how to train and evaluate a modified sequence-to-sequence (seq2seq) transformer for memory-based meta-learning. This repository shows how to apply BIML-Scale to the [SCAN](https://github.com/brendenlake/SCAN) and [COGS](https://github.com/najoungkim/COGS) machine learning benchmarks.
 
 We strongly recommend you run the training and evaluations using a GPU (one Titan RTX used in paper).
+
+**A [separate repository here](https://github.com/brendenlake/BIML-sysgen) has code for applying BIML as a model of human behavioral responses, using a simpler architecture.**
 
 This code accompanies the following submitted paper.
 - Lake, B. M. and Baroni, M. (submitted). Human-like systematic generalization through a meta-learning neural network.   
 
 You can email brenden AT nyu.edu if you would like a copy.
 
-<img src="imgs/model.png" alt="BIML-scale architecture" width="650"/>
+<img src="imgs/model.png" alt="BIML-scale architecture" width="700"/>
 
 ## Credits
 This repo borrows from the excellent [PyTorch seq2seq tutorial](https://pytorch.org/tutorials/beginner/translation_transformer.html).
