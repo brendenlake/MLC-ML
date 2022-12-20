@@ -33,7 +33,7 @@ python eval.py  --max --episode_type addprim_jump_actions --dir_model out_models
 
 To evaluate a pre-trained model on the COGS lexical generalization split,
 ```python
-python eval.py  --max --episode_type cogs_gen_lex --dir_model out_models_cogs --fn_out_model net_cogs_trained_targeted_rep1.pt --verbose
+python eval.py  --max --episode_type cogs_gen_lex --dir_model out_models_cogs --fn_out_model net_cogs_train_targeted_rep1.pt --verbose
 ```
 
 

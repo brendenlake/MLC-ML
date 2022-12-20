@@ -2,3 +2,4 @@ out_models*
 *.sublime-*
 *.sublime-*
 __pycache__
+*.zip
