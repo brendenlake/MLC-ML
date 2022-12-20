@@ -9,7 +9,7 @@ This code accompanies the following submitted paper.
 
 You can email brenden AT nyu.edu if you would like a copy.
 
-<img src="imgs/model.png" alt="BIML-scale architecture" width="450"/>
+<img src="imgs/model.png" alt="BIML-scale architecture" width="650"/>
 
 ## Credits
 This repo borrows from the excellent [PyTorch seq2seq tutorial](https://pytorch.org/tutorials/beginner/translation_transformer.html).
