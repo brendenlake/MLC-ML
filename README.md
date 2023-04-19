@@ -17,8 +17,11 @@ You can email brenden AT nyu.edu if you would like a copy.
 This repo borrows from the excellent [PyTorch seq2seq tutorial](https://pytorch.org/tutorials/beginner/translation_transformer.html).
 
 ## Requirements
-Python 3 with the following packages:
+Python 3 with the following packages (install time within minutes):
 torch (PyTorch), sklearn (scikit-learn), numpy, matplotlib
+
+The specific versions used for development:
+Python (3.7.9), PyTorch (1.10.1), sklean (0.24.2), numpy (1.21.5), matplotlib (3.3.2)
 
 ## Downloading pre-trained models
 To get pre-trained models, you should download the following [zip file](https://cims.nyu.edu/~brenden/supplemental/BIML-large-files/BIML_ml_models.zip). Please extract `BIML_ml_models.zip` such that `out_models_scan` and `out_models_cogs` are sub-directories of the main repo and contain the model files `net_*.pt`. Records of the model output and performance numbers for the runs used in the paper are also available in this folder, as e.g., `net_*_eval_gen_lex.txt`.
