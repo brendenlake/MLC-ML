@@ -4,7 +4,7 @@ Meta-Learning for Compositionality (MLC) is an optimization procedure that encou
 
 **A [separate repository here](https://github.com/brendenlake/MLC) has code for applying MLC as a model of human behavioral responses, using a simpler architecture.**
 
-**Note: Users can regard the acronym BIML as synonymous with MLC. The model was renamed to MLC after the code was written.**
+**Note: Users can regard the acronym BIML as synonymous with MLC. The approach was renamed to MLC after the code was written.**
 
 We strongly recommend you run the training and evaluations using a GPU (one Titan RTX used in paper).
 
