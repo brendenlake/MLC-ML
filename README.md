@@ -1,10 +1,12 @@
-# Applying Behaviorally-Informed Meta-Learning (BIML) to machine learning benchmarks
+# Meta-Learning for Compositionality (MLC) for machine learning benchmarks
 
-BIML is a meta-learning approach for guiding neural networks to human-like systematic generalization and inductive biases. This code shows how to train and evaluate a modified sequence-to-sequence (seq2seq) transformer for memory-based meta-learning. This repository shows how to apply BIML-Scale to the [SCAN](https://github.com/brendenlake/SCAN) and [COGS](https://github.com/najoungkim/COGS) machine learning benchmarks.
+Meta-Learning for Compositionality (MLC) is an optimization procedure that encourages systematicity through a series of few-shot compositional tasks. This repository shows how to apply MLC to the [SCAN](https://github.com/brendenlake/SCAN) and [COGS](https://github.com/najoungkim/COGS) machine learning benchmarks.
+
+**A [separate repository here](https://github.com/brendenlake/MLC) has code for applying MLC as a model of human behavioral responses, using a simpler architecture.**
+
+**Note: Users can regard the acronym BIML as synonymous with MLC. The model was renamed to MLC after the code was written.**
 
 We strongly recommend you run the training and evaluations using a GPU (one Titan RTX used in paper).
-
-**A [separate repository here](https://github.com/brendenlake/BIML-sysgen) has code for applying BIML as a model of human behavioral responses, using a simpler architecture.**
 
 This code accompanies the following submitted paper.
 - Lake, B. M. and Baroni, M. (submitted). Human-like systematic generalization through a meta-learning neural network.   
@@ -27,7 +29,7 @@ Python (3.7.9), PyTorch (1.10.1), sklean (0.24.2), numpy (1.21.5), matplotlib (3
 To get pre-trained models, you should download the following [zip file](https://cims.nyu.edu/~brenden/supplemental/BIML-large-files/BIML_ml_models.zip). Please extract `BIML_ml_models.zip` such that `out_models_scan` and `out_models_cogs` are sub-directories of the main repo and contain the model files `net_*.pt`. Records of the model output and performance numbers for the runs used in the paper are also available in this folder, as e.g., `net_*_eval_gen_lex.txt`.
 
 ## Evaluating models
-Models are evaluated via their best responses to the test commands. We find the best response from the pre-trained BIML model using greedy decoding.
+Models are evaluated via their best responses to the test commands. We find the best response from the pre-trained MLC model using greedy decoding.
 
 To evaluate a pre-trained model on the SCAN Add jump split,
 ```python
@@ -66,21 +68,21 @@ optional arguments:
 ## Episode types
 Please see `datasets.py` for the full set of options. Here are a few key episode types that can be set via `--episode_type`:
 
-For evaluating on SCAN:
+For MLC on SCAN:
 - `simple_actions` : For meta-training and evaluating on SCAN Simple (IID) split.
 - `addprim_jump_actions` : For meta-training and evaluating on SCAN Add jump split.
 - `around_right_actions` : For meta-training and evaluating on SCAN Around right split.
 - `opposite_right_actions` : For meta-training and evaluating on SCAN Opposite right split.
 - `length_actions` : For meta-training and evaluating on SCAN Length split.
 
-For BIML on COGS:
+For MLC on COGS:
 - `cogs_train_targeted` : Meta-training for COGS on all splits.
 - `cogs_iid` : For evaluating on COGS Simple (IID) split.
 - `cogs_gen_lex` : For evaluating on systematic lexical generalization split.
 - `cogs_gen_struct` : for evaluating on systematic structural generalization split.
 
 ## Training models from scratch
-Here are example of how to optimize BIML-Scale on SCAN and COGS. For training and evaluating on the SCAN Add jump split, 
+Here are example of how to optimize MLC-Scale on SCAN and COGS. For training and evaluating on the SCAN Add jump split, 
 ```python
 python train.py --episode_type addprim_jump_actions --fn_out_model net-BIML-scan-add-jump.pt
 ```
