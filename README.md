@@ -8,12 +8,9 @@ Meta-Learning for Compositionality (MLC) is an optimization procedure that encou
 
 We strongly recommend you run the training and evaluations using a GPU (one Titan RTX used in paper).
 
-This code accompanies the following submitted paper.
-- Lake, B. M. and Baroni, M. (submitted). Human-like systematic generalization through a meta-learning neural network.   
-
-You can email brenden AT nyu.edu if you would like a copy.
-
-<img src="imgs/model.png" alt="BIML-scale architecture" width="700"/>
+## Citation
+Please cite the following article if you use any of this code in your work:
+- [Lake, B. M. and Baroni, M. (2023). Human-like systematic generalization through a meta-learning neural network.](https://www.nature.com/articles/s41586-023-06668-3.pdf) Nature, 623, 115-121. 
 
 ## Credits
 This repo borrows from the excellent [PyTorch seq2seq tutorial](https://pytorch.org/tutorials/beginner/translation_transformer.html).
@@ -26,6 +23,8 @@ The specific versions used for development:
 Python (3.7.9), PyTorch (1.10.1), sklean (0.24.2), numpy (1.21.5), matplotlib (3.3.2)
 
 ## Downloading pre-trained models
+<img src="imgs/model.png" alt="BIML-scale architecture" width="700"/>
+
 To get pre-trained models, you should download the following [zip file](https://cims.nyu.edu/~brenden/supplemental/BIML-large-files/BIML_ml_models.zip). Please extract `BIML_ml_models.zip` such that `out_models_scan` and `out_models_cogs` are sub-directories of the main repo and contain the model files `net_*.pt`. Records of the model output and performance numbers for the runs used in the paper are also available in this folder, as e.g., `net_*_eval_gen_lex.txt`.
 
 ## Evaluating models
